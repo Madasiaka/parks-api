@@ -6,7 +6,7 @@ const PORT = 8000
 app.use(cors())
 
 const parks = {
-    'Flaming Gyser' : {
+    'flaming gyser' : {
         'beach access' : false,
         'river access' : true,
         'lake' : false,
@@ -14,7 +14,7 @@ const parks = {
         'campground' : false,
         'best season to visit' : 'summer',
     },
-    'Kanasket-Palmer' : {
+    'kanasket-palmer' : {
         'beach access' : false,
         'river access' : false,
         'lake' : true,
@@ -22,7 +22,7 @@ const parks = {
         'campground' : false,
         'best season to visit' : 'summer',
     },
-    'Saint Edward' : {
+    'saint edward' : {
         'beach access' : false,
         'river access' : false,
         'lake' : true,
@@ -30,7 +30,7 @@ const parks = {
         'campground' : false,
         'best season to visit' : 'summer',
     },
-    'Saltwater' : {
+    'saltwater' : {
         'beach access' : true,
         'river access' : false,
         'lake' :false,
@@ -54,10 +54,12 @@ app.get('/', (request, response) => {
 
 app.get('/api/:name', (request, response) => {
     const parkName = request.params.name.toLowerCase()
-    if(parks[parkName]){
+    //console.log(parkName)
+    //response.json(parks)
+    if( parks[parkName] ){
         response.json(parks[parkName])
     }else {
-        response.json(parks['unknown'])
+       response.json(parks['unknown'])
     }
 })
 
